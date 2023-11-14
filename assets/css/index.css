@@ -52,16 +52,7 @@ html,
     padding: 8vmin 0;
 }
 
-.gh-postfeed {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
-    gap: 4.8vmin 4vmin;
-    padding: 8vmin 0;
-}
 
-.gh-postfeed > *:first-child {
-    grid-column: 1 / -1;
-}
 
 .gh-container {
     width: 100%;
@@ -182,14 +173,6 @@ html,
     text-align: center;
 }
 
-.gh-post-meta {
-    display: block;
-    margin: 0 0 1rem;
-    font-size: 1.4rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    opacity: 0.8;
-}
 
 .gh-excerpt {
     margin: 1rem 0 0 0;

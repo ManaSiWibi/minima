@@ -4,8 +4,25 @@
 
         <div class="gh-postfeed">
         {{#foreach posts}}
+        
+        <ul>
+            <li>
+                
+                <span class="gh-post-meta"><time >{{date format="YYYY MM DD"}}</time> -</span> <a class="gh-post-link" "{{url}}">{{title}}</a> 
+    
+                </li>
+        </ul>
 
-            {{> "card" page=../pagination.page }} {{!-- partials/card.hbs --}}
+              {{!-- <a class="gh-card-link" href="{{url}}">
+        <div class="gh-card-content">
+            <span class="gh-card-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
+            <h2 class="gh-card-title">{{title}}</h2>
+            <p>{{excerpt}}</p>
+            <strong>Read more</strong>
+        </div>
+    </a> --}}
+            {{!-- {{> "card" page=../pagination.page }}  --}}
+            {{!-- partials/card.hbs --}}
 
         {{/foreach}}
         </div>
