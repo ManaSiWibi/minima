@@ -1,35 +1,66 @@
 {{!< default}}
-
 <div class="gh-page">
     <div class="gh-container">
 
-        {{#tag}}
-        <header class="gh-page-head">
+        {{#get "tags" include="count.posts" limit="all" as |topic|}}
+            <section class="gh-section">
+                <h3 class="gh-section-title">Tags</h3>
 
-            <h1>{{name}}</h1>
+                <div class="gh-topic">
+                    {{#foreach topic}}
+                        <a class="gh-topic-item" href={{url}}>
+                            <button
+                                class="gh-topic-name {{link_class for=url}}"
+                            >{{name}} ({{count.posts}})</button>
+                        </a>
 
-            <p>
-                {{#if description}}
-                    {{description}}
-                {{else}}
-                    A collection of {{plural ../pagination.total empty='posts' singular='% post' plural='% posts'}}
-                {{/if}}
-            </p>
-
-            {{#if feature_image}}
-                <img class="gh-page-image" src="{{feature_image}}" alt="{{name}}" />
-            {{/if}}
-
-        </header>
-        {{/tag}}
+                    {{/foreach}}
+                </div>
+            </section>
+        {{/get}}
 
         <div class="gh-postfeed">
-        {{#foreach posts}}
+            <h3 class="gh-section-title">Posts</h3>
+            {{#foreach posts}}
 
-            {{> "card"}} {{!-- partials/card.hbs --}}
+                <ul>
+                    <li>
+                        
+                            <a class="gh-post-link" href="{{url}}">
+                                <span class="gh-post-meta"><time>{{date
+                                            format="YYYY MM DD"
+                                        }}</time>
+                                    -
+                                    {{title}}
+                                </span>
+                            </a>
+                                <span class="right-side"> {{reading_time}}</span>
+                    
+                    </li>
+                </ul>
 
-        {{/foreach}}
+                {{!-- <a class="gh-card-link" href="{{url}}">
+        <div class="gh-card-content">
+            <span class="gh-card-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date formtat="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
+            <h2 class="gh-card-title">{{title}}</h2>
+            <p>{{excerpt}}</p>
+            <strong>Read more</strong>
+        </div>
+    </a> --}}
+                {{!-- {{> "card" page=../pagination.page }}  --}}
+                {{! partials/card.hbs }}
+
+            {{/foreach}}
+        </div>
+        <div class="gh-pagination">
+            {{pagination}}
         </div>
 
+        {{! If JS isn't enabled, fallback to standard pagination }}
+        <noscript>
+            <div class="gh-pagination">
+                {{pagination}}
+            </div>
+        </noscript>
     </div>
 </div>

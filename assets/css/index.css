@@ -239,3 +239,64 @@ html,
         font-size: 1.6rem;
     }
 }
+
+
+.gh-section {
+    padding-bottom: 4rem;
+}
+.gh-section-title {
+    padding-bottom: 1rem;
+}
+
+.gh-topic button{
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
+
+
+.gh-topic button:hover {
+  background-color: #e7e7e7;
+}
+
+.gh-topic .nav-current {
+    border: 2px solid black;
+  }
+
+.gh-postfeed li {
+ list-style: none;
+ margin-bottom: 1rem;
+ font-size: larger
+
+}
+
+.gh-postfeed li:hover {
+    border-bottom: solid 1px gray;
+    font-weight: bold;
+   }
+
+
+
+.right-side{
+    float: right;
+}
+
+.right-side a{
+    text-decoration: none;
+}
+
+.right-side a:hover{
+    text-decoration: underline;
+}
+
+
+
+@media (max-width: 700px) {
+    .gh-postfeed li {
+        margin-bottom: 0.75rem;
+    }
+    .right-side {
+        display: none;
+
+    }
+}
