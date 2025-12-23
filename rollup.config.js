@@ -5,8 +5,6 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 // Use the latest JS features in your Rollup bundle
 import babel from '@rollup/plugin-babel';
-// Minifies the bundle
-import terser from '@rollup/plugin-terser';
 
 // CSS
 // Enable the PostCSS preprocessor
@@ -26,8 +24,7 @@ export default defineConfig({
     output: {
         dir: "assets/built",
         sourcemap: true,
-        format: 'iife',
-        plugins: [terser()]
+        format: 'iife'
     },
     plugins: [
         commonjs(), 
